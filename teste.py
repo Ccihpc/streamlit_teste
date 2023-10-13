@@ -1,4 +1,4 @@
-import streamlit as st
+ import streamlit as st
 
 def morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_heparin, mobility, mental_status):
     score = 0
@@ -8,7 +8,7 @@ def morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_
         score += 15
     if ambulatory_aid == "Muletas/Bengala/Andador":
         score += 15
-    if ambulatory_aid == "Mobilidade/Parede":
+    elif ambulatory_aid == "Mobilidade/Parede":
         score += 30
     if IV_heparin == "Sim":
         score += 20
@@ -34,19 +34,23 @@ def risk_category(score):
         return "Risco médio"
 
 st.title("Avaliação de Risco de Lesão por Pressão em Cuidados Intensivos")
+
+# Seção da Escala de Morse
 st.subheader("Escala de Morse")
 history_of_falls = st.radio("Histórico de Quedas", ("Não", "Sim"))
 secondary_diagnosis = st.radio("Diagnóstico Secundário", ("Não", "Sim"))
 ambulatory_aid = st.radio("Auxílio na Deambulação", ("Nenhum/Acamado/Auxiliado por Profissional de Saúde", "Muletas/Bengala/Andador", "Mobilidade/Parede"))
 IV_heparin = st.radio("Presença de Soro Intravenoso (IV) ou Heparina", ("Não", "Sim"))
 mobility = st.radio("Marcha", ("Normal/Sem deambulação, Acamado, Cadeira de Rodas", "Fraca", "Comprometida/Cambaleante"))
-mental_status = st.radio("Estado Mental", ("Orientado/capaz quanto a sua capacidade/limitação", "Superestina capacidade/Esquece limitações"))
+mental_status = st.radio("Estado Mental", ("Orientado/capaz quanto a sua capacidade/limitação", "Superestima capacidade/Esquece limitações"))
 
+morse_calculated = False
 if st.button("Calcular Pontuação da Escala de Morse"):
     morse_total_score = morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_heparin, mobility, mental_status)
     morse_risk = risk_category(morse_total_score)
-    st.success(f"Pontuação total da Escala de Morse: {morse_total_score} - Tipo de Risco: {morse_risk}")
+    morse_calculated = True
 
+# Seção da Escala EVARUCI
 st.subheader("Escala EVARUCI")
 consciousness = st.checkbox("Consciência: Consciente (1 ponto)")
 consciousness += st.checkbox("Consciência: Colaborativo (2 pontos)") * 2
@@ -74,9 +78,17 @@ other_factors += st.checkbox("Outros: PA sistólica < 100 mmHg (1 ponto)")
 other_factors += st.checkbox("Outros: Estado da pele (1 ponto)")
 other_factors += st.checkbox("Outros: Paciente em prona (1 ponto)")
 
-length_of_stay = st.slider("Semanas de Internação na UTI (0-4)", 0, 4, 0)
+length_of_stay_evaruci = st.slider("Semanas de Internação na UTI (0-4)", 0, 4, 0)
 
+evaruci_calculated = False
 if st.button("Calcular Pontuação da Escala EVARUCI"):
-    evaruci_total_score = evaruci_scale_score(consciousness, hemodynamics, respiratory, mobility_evaruci, other_factors, length_of_stay)
+    evaruci_total_score = evaruci_scale_score(consciousness, hemodynamics, respiratory, mobility_evaruci, other_factors, length_of_stay_evaruci)
     evaruci_risk = risk_category(evaruci_total_score)
+    evaruci_calculated = True
+
+# Resultados
+if morse_calculated:
+    st.success(f"Pontuação total da Escala de Morse: {morse_total_score} - Tipo de Risco: {morse_risk}")
+
+if evaruci_calculated:
     st.success(f"Pontuação total da Escala EVARUCI: {evaruci_total_score} - Tipo de Risco: {evaruci_risk}")
