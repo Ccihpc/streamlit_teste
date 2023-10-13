@@ -8,13 +8,11 @@ def morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_
         score += 15
     if ambulatory_aid == "Muletas/Bengala/Andador":
         score += 15
-    if ambulatory_aid == "Acamado/Auxiliado por Profissional de Saude":
-        score += 0
     if IV_heparin:
         score += 20
     if mobility == "Fraca":
         score += 10
-    if mobility == "Comprometida/Cambaleante":
+    elif mobility == "Comprometida/Cambaleante":
         score += 20
     if mental_status == "Superestima capacidade/Esquece limitações":
         score += 15
@@ -33,12 +31,13 @@ st.title("Escala de Morse - Avaliação de Risco de Queda")
 history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
 secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
 ambulatory_aid = st.radio("Auxílio na Deambulação", 
-                          ("Nenhum/Sem deambulação, Acamado, Cadeira de Rodas", 
-                           "Fraca", 
-                           "Comprometida/Cambaleante", 
-                           "Acamado/Auxiliado por Profissional de Saude", 
+                          ("Nenhum/Acamado/Auxiliado por Profissional de Saúde", 
                            "Muletas/Bengala/Andador"))
 IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
+mobility = st.radio("Marcha", 
+                    ("Normal/Sem deambulação, Acamado, Cadeira de Rodas", 
+                     "Fraca", 
+                     "Comprometida/Cambaleante"))
 mental_status = st.radio("Estado Mental", 
                          ("Orientado/capaz quanto a sua capacidade/limitação", 
                           "Superestima capacidade/Esquece limitações"))
