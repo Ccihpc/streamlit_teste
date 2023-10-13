@@ -8,13 +8,15 @@ def morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_
         score += 15
     if ambulatory_aid == "Muletas/Bengala/Andador":
         score += 15
+    elif ambulatory_aid == "Mobilidade/Parede":
+        score += 30
     if IV_heparin:
         score += 20
     if mobility == "Fraca":
         score += 10
     elif mobility == "Comprometida/Cambaleante":
         score += 20
-    if mental_status == "Superestima capacidade/Esquece limitações":
+    if mental_status == "Superestina capacidade/Esquece limitações":
         score += 15
     return score
 
@@ -32,7 +34,8 @@ history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
 secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
 ambulatory_aid = st.radio("Auxílio na Deambulação", 
                           ("Nenhum/Acamado/Auxiliado por Profissional de Saúde", 
-                           "Muletas/Bengala/Andador"))
+                           "Muletas/Bengala/Andador",
+                           "Mobilidade/Parede"))
 IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
 mobility = st.radio("Marcha", 
                     ("Normal/Sem deambulação, Acamado, Cadeira de Rodas", 
@@ -40,7 +43,7 @@ mobility = st.radio("Marcha",
                      "Comprometida/Cambaleante"))
 mental_status = st.radio("Estado Mental", 
                          ("Orientado/capaz quanto a sua capacidade/limitação", 
-                          "Superestima capacidade/Esquece limitações"))
+                          "Superestina capacidade/Esquece limitações"))
 
 if st.button("Calcular Pontuação"):
     total_score = morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_heparin, mobility, mental_status)
