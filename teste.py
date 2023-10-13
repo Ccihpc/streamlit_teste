@@ -38,10 +38,10 @@ def evaruci_scale_score(consciousness, hemodynamics, respiratory, mobility, othe
 def evaruci_risk_category(score):
     if score == 4:
         return "Risco mínimo"
-    elif score > 4:
-        return "Risco médio"
-    else:
+    elif score == 23:
         return "Risco máximo"
+    else:
+        return "Risco médio"
 
 st.set_page_config(page_title="Avaliação de Risco de Lesão por Pressão", page_icon="✅")
 st.title("Avaliação de Risco de Lesão por Pressão em Cuidados Intensivos")
