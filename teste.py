@@ -21,12 +21,12 @@ def morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_
     return score
 
 def risk_category(score):
-    if score >= 45:
-        return "Alto Risco"
-    elif score >= 25:
-        return "Moderado Risco"
+    if score >= 51:
+        return "Risco muito elevado"
+    elif score >= 41:
+        return "Risco elevado"
     else:
-        return "Baixo Risco"
+        return "Risco médio"
 
 st.title("Escala de Morse - Avaliação de Risco de Queda")
 
