@@ -1,4 +1,4 @@
- import streamlit as st
+import streamlit as st
 
 def morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_heparin, mobility, mental_status):
     score = 0
