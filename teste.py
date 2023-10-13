@@ -96,7 +96,7 @@ other_factors = {
     "Estado da pele (1 ponto)": st.checkbox("Estado da pele"),
     "Paciente em prona (1 ponto)": st.checkbox("Paciente em prona")
 }
-
+st.write("Acrescentar à pontuação total do item “outros” 0,5 ponto para cada semana de internação do paciente na Unidade de Cuidados Intensivos, até o máximo de 2 pontos.")
 length_of_stay_evaruci = st.slider("Semanas de Internação na UTI (0-4)", 0, 4, 0)
 
 evaruci_calculated = False
