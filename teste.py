@@ -36,7 +36,7 @@ def evaruci_scale_score(consciousness, hemodynamics, respiratory, mobility, othe
 
 
 def evaruci_risk_category(score):
-    if score <= 9:
+    if score <= 10:
         return "Baixo Risco"
     #elif score == 23:
         #return "Risco máximo"
