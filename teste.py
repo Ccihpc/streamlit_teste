@@ -44,21 +44,22 @@ def evaruci_risk_category(score):
         return "Risco médio"
 
 st.set_page_config(page_title="Avaliação de Risco de Lesão por Pressão", page_icon="✅")
-st.title("Calculadora - Escala EVARUCI")
+st.title("Calculadora")
 st.subheader("Por Enf. Renato Douglas")
 
 # Escala de Morse
-# st.subheader("Escala de Morse")
-# history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
-# secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
-# ambulatory_aid = st.selectbox("Uso de Dispositivo de Auxílio à Deambulação", ["Nenhum/Acamado/Auxiliado por Profissional de Saúde ", "Muletas/Bengala/Andador", "Mobilidade/Parede"])
-# IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
-# mobility = st.selectbox("Marcha", ["Normal/Sem deambulação, Acamado, Cadeira de Rodas (0 pontos)", "Fraca (10 pontos)", "Comprometida/Cambaleante (20 pontos)"])
-# mental_status = st.checkbox("Estado Mental: Superestima capacidade/Esquece limitações (15 pontos)")
+st.subheader("Escala de Morse")
+history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
+secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
+ambulatory_aid = st.selectbox("Uso de Dispositivo de Auxílio à Deambulação", ["Nenhum/Acamado/Auxiliado por Profissional de Saúde ", "Muletas/Bengala/Andador", "Mobilidade/Parede"])
+IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
+mobility = st.selectbox("Marcha", ["Normal/Sem deambulação, Acamado, Cadeira de Rodas (0 pontos)", "Fraca (10 pontos)", "Comprometida/Cambaleante (20 pontos)"])
+mental_status = st.checkbox("Estado Mental: Superestima capacidade/Esquece limitações (15 pontos)")
 
-# st.write("<hr>", unsafe_allow_html=True)
+st.write("<hr>", unsafe_allow_html=True)
 
 # Escala EVARUCI
+st.subheader("Escala de Morse")
 consciousness_options = {"Consciente (1 ponto)": 1, "Colaborativo (2 pontos)": 2, "Reativo (3 pontos)": 3, "Arreativo (4 pontos)": 4}
 consciousness = st.selectbox("Consciência", list(consciousness_options.keys()), format_func=lambda x: x.split("(")[0].strip())
 hemodynamics_options = {"Sem suporte (1 ponto)": 1, "Com expansão (2 pontos)": 2, "Com dopamina ou dobutamina (3 pontos)": 3, "Com adrenalina ou noradrenalina (4 pontos)": 4}
