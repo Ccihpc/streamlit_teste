@@ -59,8 +59,8 @@ st.subheader("Por Enf. Renato Douglas")
 st.write("<hr>", unsafe_allow_html=True)
 
 # Escala EVARUCI
-st.subheader("Escala de Morse")
-consciousness_options = {"Consciente (1 ponto)": 1, "Colaborativo (2 pontos)": 2, "Reativo (3 pontos)": 3, "Arreativo (4 pontos)": 4}
+st.subheader("Escala de EVARUCI")
+consciousness_options = {"Consciente - 1 ponto": 1, "Colaborativo (2 pontos)": 2, "Reativo (3 pontos)": 3, "Arreativo (4 pontos)": 4}
 consciousness = st.selectbox("Consciência", list(consciousness_options.keys()), format_func=lambda x: x.split("(")[0].strip())
 hemodynamics_options = {"Sem suporte (1 ponto)": 1, "Com expansão (2 pontos)": 2, "Com dopamina ou dobutamina (3 pontos)": 3, "Com adrenalina ou noradrenalina (4 pontos)": 4}
 hemodynamics = st.selectbox("Hemodinâmica", list(hemodynamics_options.keys()), format_func=lambda x: x.split("(")[0].strip())
