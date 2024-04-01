@@ -60,13 +60,13 @@ st.write("<hr>", unsafe_allow_html=True)
 
 # Escala EVARUCI
 st.subheader("Escala de EVARUCI")
-consciousness_options = {"Consciente - 1 ponto": 1, "Colaborativo (2 pontos)": 2, "Reativo (3 pontos)": 3, "Arreativo (4 pontos)": 4}
+consciousness_options = {"Consciente - 1 ponto": 1, "Colaborativo - 2 pontos": 2, "Reativo - 3 pontos": 3, "Arreativo - 4 pontos": 4}
 consciousness = st.selectbox("Consciência", list(consciousness_options.keys()), format_func=lambda x: x.split("(")[0].strip())
-hemodynamics_options = {"Sem suporte (1 ponto)": 1, "Com expansão (2 pontos)": 2, "Com dopamina ou dobutamina (3 pontos)": 3, "Com adrenalina ou noradrenalina (4 pontos)": 4}
+hemodynamics_options = {"Sem suporte - 1 ponto": 1, "Com expansão - 2 pontos": 2, "Com dopamina ou dobutamina - 3 pontos": 3, "Com adrenalina ou noradrenalina - 4 pontos": 4}
 hemodynamics = st.selectbox("Hemodinâmica", list(hemodynamics_options.keys()), format_func=lambda x: x.split("(")[0].strip())
-respiratory_options = {"Com baixa necessidade de O2 (1 ponto)": 1, "Com alta necessidade de O2 (2 pontos)": 2, "Com suporte respiratório (3 pontos)": 3, "Com ventilação mecânica invasiva (4 pontos)": 4}
+respiratory_options = {"Com baixa necessidade de O2 - 1 ponto": 1, "Com alta necessidade de O2 - 2 pontos": 2, "Com suporte respiratório - 3 pontos": 3, "Com ventilação mecânica invasiva - 4 pontos": 4}
 respiratory = st.selectbox("Respiratório", list(respiratory_options.keys()), format_func=lambda x: x.split("(")[0].strip())
-mobility_options = {"Independente (1 ponto)": 1, "Dependente mas se movimenta (2 pontos)": 2, "Pouca mobilidade (3 pontos)": 3, "Sem mobilidade (4 pontos)": 4}
+mobility_options = {"Independente - 1 ponto": 1, "Dependente mas se movimenta - 2 pontos": 2, "Pouca mobilidade - 3 pontos": 3, "Sem mobilidade - 4 pontos": 4}
 mobility_evaruci = st.selectbox("Mobilidade", list(mobility_options.keys()), format_func=lambda x: x.split("(")[0].strip())
 
 # Fatores adicionais
