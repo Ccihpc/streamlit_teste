@@ -45,6 +45,7 @@ def evaruci_risk_category(score):
 
 st.set_page_config(page_title="Avaliação de Risco de Lesão por Pressão", page_icon="✅")
 st.title("Avaliação de Risco de Lesão por Pressão em Cuidados Intensivos")
+st.subheader("Por Enf. Renato Douglas")
 
 # Escala de Morse
 st.subheader("Escala de Morse")
