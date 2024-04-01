@@ -36,25 +36,25 @@ def evaruci_scale_score(consciousness, hemodynamics, respiratory, mobility, othe
 
 
 def evaruci_risk_category(score):
-    if score == 4:
-        return "Risco mínimo"
-    elif score == 23:
-        return "Risco máximo"
+    if score <= 9:
+        return "Baixo Risco"
+    #elif score == 23:
+        #return "Risco máximo"
     else:
-        return "Risco médio"
+        return "Alto Risco"
 
 st.set_page_config(page_title="Avaliação de Risco de Lesão por Pressão", page_icon="✅")
 st.title("Calculadora")
 st.subheader("Por Enf. Renato Douglas")
 
 # Escala de Morse
-st.subheader("Escala de Morse")
-history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
-secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
-ambulatory_aid = st.selectbox("Uso de Dispositivo de Auxílio à Deambulação", ["Nenhum/Acamado/Auxiliado por Profissional de Saúde ", "Muletas/Bengala/Andador", "Mobilidade/Parede"])
-IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
-mobility = st.selectbox("Marcha", ["Normal/Sem deambulação, Acamado, Cadeira de Rodas (0 pontos)", "Fraca (10 pontos)", "Comprometida/Cambaleante (20 pontos)"])
-mental_status = st.checkbox("Estado Mental: Superestima capacidade/Esquece limitações (15 pontos)")
+#st.subheader("Escala de Morse")
+#history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
+#secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
+#ambulatory_aid = st.selectbox("Uso de Dispositivo de Auxílio à Deambulação", ["Nenhum/Acamado/Auxiliado por Profissional de Saúde ", "Muletas/Bengala/Andador", "Mobilidade/Parede"])
+#IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
+#mobility = st.selectbox("Marcha", ["Normal/Sem deambulação, Acamado, Cadeira de Rodas (0 pontos)", "Fraca (10 pontos)", "Comprometida/Cambaleante (20 pontos)"])
+#mental_status = st.checkbox("Estado Mental: Superestima capacidade/Esquece limitações (15 pontos)")
 
 st.write("<hr>", unsafe_allow_html=True)
 
@@ -92,14 +92,14 @@ calculate_button = st.button("Calcular Pontuações")
 
 
 if calculate_button:
-    morse_score = morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_heparin, mobility, mental_status)
+    #morse_score = morse_scale_score(history_of_falls, secondary_diagnosis, ambulatory_aid, IV_heparin, mobility, mental_status)
     evaruci_score = evaruci_scale_score(consciousness_options[consciousness], hemodynamics_options[hemodynamics], respiratory_options[respiratory], mobility_options[mobility_evaruci], total_points_from_other_factors, week_points)
 
 
-    st.write("<hr>", unsafe_allow_html=True)
-    st.subheader("Resultados da Escala de Morse")
-    st.write(f"Pontuação total da Escala de Morse: **{morse_score}**")
-    st.write(f"Categoria de risco: **{risk_category(morse_score)}**")
+    #st.write("<hr>", unsafe_allow_html=True)
+    #st.subheader("Resultados da Escala de Morse")
+    #st.write(f"Pontuação total da Escala de Morse: **{morse_score}**")
+    #st.write(f"Categoria de risco: **{risk_category(morse_score)}**")
     
     st.write("<hr>", unsafe_allow_html=True)
     st.subheader("Resultados da Escala EVARUCI")
