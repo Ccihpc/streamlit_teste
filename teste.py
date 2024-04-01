@@ -48,15 +48,15 @@ st.title("Avaliação de Risco de Lesão por Pressão em Cuidados Intensivos")
 st.subheader("Por Enf. Renato Douglas")
 
 # Escala de Morse
-st.subheader("Escala de Morse")
-history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
-secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
-ambulatory_aid = st.selectbox("Uso de Dispositivo de Auxílio à Deambulação", ["Nenhum/Acamado/Auxiliado por Profissional de Saúde ", "Muletas/Bengala/Andador", "Mobilidade/Parede"])
-IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
-mobility = st.selectbox("Marcha", ["Normal/Sem deambulação, Acamado, Cadeira de Rodas (0 pontos)", "Fraca (10 pontos)", "Comprometida/Cambaleante (20 pontos)"])
-mental_status = st.checkbox("Estado Mental: Superestima capacidade/Esquece limitações (15 pontos)")
+# st.subheader("Escala de Morse")
+# history_of_falls = st.checkbox("Histórico de Quedas (25 pontos)")
+# secondary_diagnosis = st.checkbox("Diagnóstico Secundário (15 pontos)")
+# ambulatory_aid = st.selectbox("Uso de Dispositivo de Auxílio à Deambulação", ["Nenhum/Acamado/Auxiliado por Profissional de Saúde ", "Muletas/Bengala/Andador", "Mobilidade/Parede"])
+# IV_heparin = st.checkbox("Presença de Soro Intravenoso (IV) ou Heparina (20 pontos)")
+# mobility = st.selectbox("Marcha", ["Normal/Sem deambulação, Acamado, Cadeira de Rodas (0 pontos)", "Fraca (10 pontos)", "Comprometida/Cambaleante (20 pontos)"])
+# mental_status = st.checkbox("Estado Mental: Superestima capacidade/Esquece limitações (15 pontos)")
 
-st.write("<hr>", unsafe_allow_html=True)
+# st.write("<hr>", unsafe_allow_html=True)
 
 # Escala EVARUCI
 st.subheader("Escala EVARUCI")
